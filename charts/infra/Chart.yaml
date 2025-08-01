@@ -17,3 +17,6 @@ dependencies:
   - name: traefik
     repository: "@traefik"
     version: 35.4.0
+  # - name: solr
+  #   repository: "@solr"
+  #   version: 0.9.1

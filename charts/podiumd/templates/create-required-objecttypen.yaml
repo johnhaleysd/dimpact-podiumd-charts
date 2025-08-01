@@ -1,3 +1,4 @@
+{{- if .Values.objecttypen.enabled }}
 {{- if .Values.objecttypen.configuration.enabled }}
 {{- if .Values.objecttypen.create_required_objecttypen_job.enabled }}
 apiVersion: v1
@@ -92,6 +93,7 @@ data:
         )
         print(f"created version for objecttype {objecttype['uuid']}")
 ---
+{{- if .Values.objecttypen.enabled -}}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -125,5 +127,7 @@ spec:
       restartPolicy: OnFailure
   backoffLimit: 4
   activeDeadlineSeconds: 300
+{{- end }}
+{{- end }}
 {{- end }}
 {{- end }}
